@@ -77,7 +77,7 @@ function App() {
           price: Math.floor(Math.random() * 10000),
           roomsBooked: 0,
           image:
-             Math.floor(Math.random() * 10000) % 2 == 0
+             Math.floor(Math.random() * 10000) % 2 === 0
               ? "/assets/le-meridien.webp"
               : "/assets/itc-chola.webp",
         }));

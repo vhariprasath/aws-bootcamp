@@ -1,13 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 export default function AdminPage() {
-  let navigate = useNavigate();
   const [address, setAddress] = useState("");
   const [hotel_name, setHotelName] = useState("");
   const [timezone, setTimezone] = useState("");
-  const [error, setError] = useState("");
+  const [error] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,21 +17,9 @@ export default function AdminPage() {
         timezone,
       })
       .then((res) => {
-        const transformeddata = res.data.map((hotel) => ({
-          id: hotel._id,
-          name: hotel.hotel_name,
-          address: hotel.address,
-          timezone: hotel.timezone,
-          price: 10000,
-          roomsBooked: 0,
-          image:
-            hotel._id % 2 == 0
-              ? "/assets/le-meridien.webp"
-              : "/assets/itc-chola.webp",
-        }));
         console.log(res);
       })
-      .catch((err) => {
+      .catch(() => {
         console.log("Error in fetching hotels");
       });
   };
