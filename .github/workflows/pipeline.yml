@@ -23,6 +23,7 @@ permissions:
 jobs:
   # ─── Frontend: Build & Deploy to S3 ────────────────────────────────────────
   deploy-frontend:
+    if: false
     name: Build & Deploy Frontend to S3
     runs-on: ubuntu-latest
 
@@ -59,7 +60,6 @@ jobs:
 
   # ─── Backend: Build & Deploy to EC2 ────────────────────────────────────────
   deploy-backend:
-    if: false
     name: Build & Deploy Backend to EC2
     runs-on: ubuntu-latest
 

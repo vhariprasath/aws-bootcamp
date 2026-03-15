@@ -8,7 +8,7 @@ import Layout from "./pages/layout";
 import HomeLayout from "./pages/homeLayout";
 import AdminPage from "./pages/admin";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
 function App() {
   const hotel = [
     {
@@ -84,7 +84,7 @@ function App() {
         setHotelList(transformeddata);
         console.log(res);
       })
-      .catch((err) => {
+      .catch(() => {
         console.log("Error in fetching hotels");
       });
   }, []);

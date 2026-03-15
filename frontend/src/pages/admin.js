@@ -11,7 +11,7 @@ export default function AdminPage() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:3000/api/hotels", {
+      .post(`${process.env.REACT_APP_API_URL}/api/hotels`, {
         address,
         hotel_name,
         timezone,
