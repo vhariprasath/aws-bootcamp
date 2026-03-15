@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counting Numbers</title>
+</head>
+<body>
+  <h1 id="counter">0</h1>
+
+  <script>
+    let i = 1;
+    const counter = document.getElementById("counter");
+
+    const interval = setInterval(() => {
+      counter.textContent = i;
+      if (i >= 10000) {
+        clearInterval(interval); // stop at 10000
+      }
+      i++;
+    }, 10); // change every 10ms (adjust speed)
+  </script>
+</body>
+</html>

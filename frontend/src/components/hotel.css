@@ -1,0 +1,6 @@
+.hotel-image {
+  width: 100px;
+  height: 100px;
+  object-fit: scale-down; /* crop and fill */
+  border-radius: 8px; /* optional */
+}
