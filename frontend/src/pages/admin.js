@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminPage() {
@@ -6,6 +7,8 @@ export default function AdminPage() {
   const [hotel_name, setHotelName] = useState("");
   const [timezone, setTimezone] = useState("");
   const [error] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -16,8 +19,12 @@ export default function AdminPage() {
         hotel_name,
         timezone,
       })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        setSuccess("Hotel added successfully!");
+        setAddress("");
+        setHotelName("");
+        setTimezone("");
+        setTimeout(() => navigate("/home"), 1500);
       })
       .catch(() => {
         console.log("Error in fetching hotels");
@@ -71,7 +78,8 @@ export default function AdminPage() {
               required
             />
           </div>
-          {<p className="text-danger mt-2">{error}</p>}
+          {error && <p className="text-danger mt-2">{error}</p>}
+          {success && <p className="text-success mt-2">{success}</p>}
           <button
             type="submit"
             className="btn btn-primary mt-3 w-100"

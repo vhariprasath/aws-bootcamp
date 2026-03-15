@@ -14,7 +14,7 @@ env:
   RDS_ENDPOINT: ${{ secrets.RDS_ENDPOINT || 'bootcampdatabase-1.cqxgwyy6yzth.us-east-1.rds.amazonaws.com' }}
   DB_NAME: ${{ secrets.DB_NAME || 'postgres' }}
   DB_USER: ${{ secrets.DB_USER || 'postgres' }}
-  DB_PASSWORD: ${{ secrets.DB_PASSWORD || 'Bootcamp#123' }}
+  DB_PASSWORD: "${{ secrets.DB_PASSWORD || 'Bootcamp#123' }}"
 
 permissions:
   id-token: write
@@ -23,7 +23,6 @@ permissions:
 jobs:
   # ─── Frontend: Build & Deploy to S3 ────────────────────────────────────────
   deploy-frontend:
-    if: false
     name: Build & Deploy Frontend to S3
     runs-on: ubuntu-latest
 
@@ -60,6 +59,7 @@ jobs:
 
   # ─── Backend: Build & Deploy to EC2 ────────────────────────────────────────
   deploy-backend:
+    needs: deploy-frontend
     name: Build & Deploy Backend to EC2
     runs-on: ubuntu-latest
 
@@ -106,7 +106,7 @@ jobs:
           DB_PORT=5432
           DB_NAME=${{ env.DB_NAME }}
           DB_USER=${{ env.DB_USER }}
-          DB_PASSWORD=${{ env.DB_PASSWORD }}
+          DB_PASSWORD="${{ env.DB_PASSWORD }}"
           DB_DIALECT=postgres
           EOF
           aws s3 cp backend.env s3://${{ env.S3_BUCKET_NAME }}/deployments/backend.env

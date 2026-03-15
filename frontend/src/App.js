@@ -136,8 +136,10 @@ function App() {
             />
           }
         >
+          <Route path="/" element={<AdminPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route
-            path="/"
+            path="/home"
             element={
               <HomeLayout
                 totalAmount={totalAmount}
@@ -147,7 +149,7 @@ function App() {
             }
           >
             <Route
-              path="/home"
+              index
               element={
                 <HotelList
                   hotelList={hotelList}
@@ -157,18 +159,8 @@ function App() {
               }
             />
           </Route>
-          <Route
-            path="/admin"
-            element={
-              <AdminPage
-                hotelList={hotelList}
-                incrementRoomsBooked={incrementRoomsBooked}
-                decreamentRoomsBooked={decreamentRoomsBooked}
-              />
-            }
-          />
         </Route>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );
