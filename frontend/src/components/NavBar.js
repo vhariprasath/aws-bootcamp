@@ -9,7 +9,7 @@ class NavBar extends Component {
       <nav className="navbar " style={{ backgroundColor: "#001f3f" }}>
         <div className="container-fluid">
           <a href="/home" className="navbar-brand text-white p-4 fw-bold">
-            Home Stay
+            Bootcamp Home Stay
           </a>
 
           <form className="d-flex" role="search">
