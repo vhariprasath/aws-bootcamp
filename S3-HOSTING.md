@@ -62,10 +62,13 @@ http://<bucket-name>.s3-website-<region>.amazonaws.com
 
 ## 5. Upload Files
 
-Upload your React build files:
+### Option A — AWS Console (Manual)
 
-```bash
-aws s3 sync build/ s3://&lt;your-bucket-name&gt; --delete
+1. Go to your bucket → **Objects** → click **Upload**
+2. Click **Add files** → select `index.html`
+3. Click **Upload**
+
+> To upload an entire build folder, click **Add folder** and select the `index.html` file.
 ```
 
 ---
