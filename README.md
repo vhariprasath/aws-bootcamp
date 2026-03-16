@@ -27,7 +27,7 @@ cat > index.js <<EOF
 const express = require('express');
 const app = express();
 
-app.get('/hello', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Hello from EC2!' });
 });
 
@@ -46,7 +46,7 @@ node index.js
 From your browser or another terminal:
 
 ```
-http://<ec2-public-ip>:3000/hello
+http://<ec2-public-ip>:3000/api
 ```
 
 > Make sure port **3000** is open in the EC2 security group inbound rules.
