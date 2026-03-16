@@ -50,7 +50,7 @@ http://<bucket-name>.s3-website-<region>.amazonaws.com
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::&lt;your-bucket-name&gt;/*"
+      "Resource": "arn:aws:s3:::<your_bucket_name>/*"
     }
   ]
 }
